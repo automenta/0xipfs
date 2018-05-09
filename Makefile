@@ -3,7 +3,15 @@ DEBUG = true
 export DEBUG
 
 all:
-	#cd ../c-libp2p; make all;
+	sudo apt-get install liblmdb-dev ; # [lmdb](https://github.com/jmjatlanta/lmdb)
+	git clone --depth 1 https://github.com/Agorise/c-libp2p libp2p; ln -s libp2p c-libp2p;
+	git clone --depth 1 https://github.com/Agorise/c-protobuf c-protobuf; 
+	git clone --depth 1 https://github.com/Agorise/c-multihash c-multihash; 
+	git clone --depth 1 https://github.com/Agorise/c-multiaddr c-multiaddr; 
+	cd c-protobuf ; make all;
+	cd c-multihash ; make all;
+	cd c-multiaddr ; make all;
+	cd libp2p; make all;
 	cd blocks; make all;
 	cd cid; make all;
 	cd cmd; make all;
@@ -27,8 +35,12 @@ all:
 	cd util; make all;
 	cd main; make all;
 	cd test; make all;
-	
+
 clean:
+	cd c-protobuf ; make clean;
+	cd c-multihash ; make clean;
+	cd c-multiaddr ; make clean;
+	cd libp2p; make clean;
 	cd blocks; make clean;
 	cd cid; make clean;
 	cd cmd; make clean;

@@ -14,3 +14,7 @@ test/scripts/hello.bin
 test/scripts/hello2.bin
 test/scripts/testlog.txt
 test/scripts/generate_file
+c-multiaddr/
+c-multihash/
+c-protobuf/
+libp2p/
